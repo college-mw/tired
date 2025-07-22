@@ -855,6 +855,10 @@ footer {
     background-color: var(--primary-navy-blue);
     color: var(--text-light);
 }
+
+body.smart-learning-page {
+    color: #000000 !important;
+}
 #admin-page .accordion-content #admin-selected-user-details,
 #admin-page .accordion-content #admin-pending-enrollments {
     margin-top: 1em;
