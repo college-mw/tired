@@ -84,6 +84,36 @@ This page displays the user's profile information.
                 <p><strong>Fees Balance:</strong> <span id="user-fees-balance">N/A</span></p>
             </div>
             <button id="logout-button" class="btn">Logout</button>
+            <button id="smart-learning-redirect-btn" class="btn">Smart Learning</button>
+        </section>
+
+        <section id="smart-learning-section" class="hidden">
+            <h2>Smart Learning Area</h2>
+            <p>Please enter the code provided by the college admin to access the learning materials.</p>
+            <input type="text" id="smart-learning-code" placeholder="Enter Access Code">
+            <button id="smart-learning-btn">Access Learning</button>
+
+            <div id="learning-content" class="hidden">
+                <h2>Student Progress</h2>
+                <div class="progress-bar">
+                    <div id="progressBarInner" class="progress-bar-inner"></div>
+                </div>
+                <div id="progressNote">Progress: 0%</div>
+
+                <h3>Today's Module</h3>
+                <input type="text" id="moduleInput" placeholder="Enter module name" class="hidden">
+                <button id="submitModuleBtn" class="hidden">Load Module Content</button>
+                <h4 id="dailyTaskTitle"></h4>
+                <div id="dailyExplanation">Loading detailed explanation...</div>
+
+                <h3>Related Videos</h3>
+                <div id="videos"></div>
+
+                <h3>Suggested Reading Materials</h3>
+                <div id="exerciseSection"></div>
+
+                <button id="startOverBtn" class="hidden">Start Over</button>
+            </div>
         </section>
     </main>
 
@@ -127,6 +157,17 @@ This page displays the user's profile information.
     <!-- Firebase v11+ uses ES Modules -->
     <script type="module" src="firebase-config.js"></script>
     <script type="module" src="app.js"></script>
+    <script src="smart-learning.js"></script>
+    <script>
+        document.getElementById('smart-learning-redirect-btn').addEventListener('click', () => {
+            const code = prompt('Please enter the access code:');
+            if (code === '010101') {
+                window.location.href = 'smart-learning.html';
+            } else {
+                alert('Incorrect access code.');
+            }
+        });
+    </script>
     <!-- Back to Top Button -->
     <button id="back-to-top-btn" title="Go to top">Top</button>
 </body>
